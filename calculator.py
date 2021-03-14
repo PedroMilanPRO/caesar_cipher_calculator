@@ -1,22 +1,22 @@
 class caeser:
     print('=========Calculator Cypher==============')
 
-    texto = input('Enter the text to be Encrypted or Decrypted: ').upper()
-    chave = int(input('type the key (> 0; < 26): '))
-    modo = input('Choose E to encrypt or D to decrypt: ')
+    text = input('Enter the text to be Encrypted or Decrypted: ').upper()
+    key = int(input('type the key (> 0; < 26): '))
+    mode = input('Choose E to encrypt or D to decrypt: ')
 
     CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     converted = ''
 
-    for character in texto:
+    for character in text:
         if character in CHARACTERS:
             num = CHARACTERS.find(character)
 
-            if modo == 'E':
-                num = num + chave
-            elif modo == 'D': 
-                num = num - chave
-            
+            if mode == 'E':
+                num = num + key
+            elif mode == 'D': 
+                num = num - key
+        
             if num >= len(CHARACTERS):
                 num = num - len(CHARACTERS)
             elif num < 0:
@@ -24,17 +24,10 @@ class caeser:
             
             converted = converted + CHARACTERS[num]
 
+        else:
+            converted = converted + character
 
-    if modo == 'E':
+    if mode == 'E':
         print(f'Encrypted text is {converted}')
-    elif modo == 'D':
+    elif mode == 'D':
         print(f'decrypted text is {converted}')
-
-
-
-
-
-
-
-
-
