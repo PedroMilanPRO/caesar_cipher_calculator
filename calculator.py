@@ -3,7 +3,7 @@ class caeser:
 
     text = input('Enter the text to be Encrypted or Decrypted: ').upper()
     key = int(input('type the key (> 0; < 26): '))
-    mode = input('Choose E to encrypt or D to decrypt: ')
+    mode = input('Choose E to encrypt or D to decrypt: ').upper()
 
     CHARACTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     converted = ''
@@ -13,19 +13,19 @@ class caeser:
             num = CHARACTERS.find(character)
 
             if mode == 'E':
-                num = num + key
+                num += key
             elif mode == 'D': 
-                num = num - key
+                num -= key
         
             if num >= len(CHARACTERS):
-                num = num - len(CHARACTERS)
+                num -= len(CHARACTERS)
             elif num < 0:
-                num = num + len(CHARACTERS)
+                num += len(CHARACTERS)
             
-            converted = converted + CHARACTERS[num]
+            converted += CHARACTERS[num]
 
         else:
-            converted = converted + character
+            converted += character
 
     if mode == 'E':
         print(f'Encrypted text is {converted}')
